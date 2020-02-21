@@ -1,0 +1,22 @@
+Um sistema com duas classes;
+Entrevistador e compromisso;
+Ai pode ser só 1 módulo mesmo
+
+Depois de criar o entrevistador, vai adicionando os compromissos.
+
+Compromisso tem data e hora de início e de fim - duração em minutos
+
+Não pode haver conflitos entre compromissos
+
+Gerar um exception neste caso
+
+Cobre de teste com pytest
+
+Não precisa de banco
+
+
+2 módulos: models, test
+
+Pode criar um main ou app também para ir testando as coisas
+
+Fazer upload para o bicketbucket
