@@ -2,7 +2,7 @@
 
 class Carro:
 	def __init__(self):
-		self.peso = 1000.0
+		pass
 
 	def definirPeso(self, peso):
 		self.peso = peso
