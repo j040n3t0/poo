@@ -1,8 +1,37 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime, timedelta
+
 class Compromisso:
 	def __init__(self):
-		self.horainicio = ''
+		pass
+
+	def agendarCompromisso(self, nome):
+		if nome:
+			start_date = input("Informe o horario do compromisso: (dd/mm/aa hh:mm) ")
+			howlong = input("Informe o tempo de duração do compromisso em minutos: ")
+			date_1 = datetime.strptime(start_date, "%d/%m/%y %H:%M")
+			end_date = date_1 + timedelta(minutes=int(howlong))
+
+			print(f'\n\nOla {nome} seu compromisso inicia {start_date} e termina às {end_date}!! \n\n')
+		else:
+			return "Necessário cadastrar a pessoa!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	# def definirPeso(self, peso):
 	# 	self.peso = peso

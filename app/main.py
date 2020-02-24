@@ -1,31 +1,112 @@
 # -*- coding: utf-8 -*-
 
 import os
-#from datetime import datetime, timedelta
-import datetime
 import compromisso, entrevistador
 
 os.system("cls")
+listEntrevistador = []
+dictObjetos = {}
 
 if __name__ == '__main__':
-	obj_entrevistador = entrevistador.Entrevistador()
-	obj_compromisso = compromisso.Compromisso()
 
-	start_date = input("Informe o horario do compromisso: (dd/mm/aa hh:mm) ")
-	howlong = input("Informe o tempo de duração do compromisso em minutos: ")
-	#start_date = "10/10/20 16:16"
+	compromissos = compromisso.Compromisso()
 
-	date_1 = datetime.datetime.strptime(start_date, "%d/%m/%y %H:%M")
-	end_date = date_1 + datetime.timedelta(minutes=int(howlong))
+	def addEntrevistador():
+		nome = input("Informe o nome: ")
+		listEntrevistador.append(nome)
+		dictObjetos[nome] = entrevistador.Entrevistador()
+		dictObjetos[nome].definirNome(nome)
+		return print(f'Entrevistador {nome} adicionado!')
+	
+	def showEntrevistador():
+		return "January"
 
-	print(f'\n\n {end_date} \n\n')
+	def addCompromisso(nome):
+		compromissos.agendarCompromisso(dictObjetos[nome].nome)
+		return print(f'Compromisso adicionado para o entrevistador {nome}!') 
+
+	def showCompromisso():
+		return "January"
+
+	def agenda(argument):
+		switcher = {
+			1: addEntrevistador,
+			2: showEntrevistador,
+			3: addCompromisso,
+			4: showCompromisso,
+		}
+		# Get the function from switcher dictionary
+		func = switcher.get(argument, lambda: "Argumento inválido!!")
+		# Execute the function
+		print(func())
+
+	while True:
+		print("Selecione ao nº da opção... \n \
+1: addEntrevistador \n \
+2: showEntrevistador \n \
+3: addCompromisso \n \
+4: showCompromisso \n \
+5: stop \n\n")
+		opt = input()
+		if opt == "5":
+			break 
+		else:
+			agenda(int(opt))
+
+
+
+
+
+
+
+
+
+
+
+
+	# Imprimir os tipos dos objetos
+	# for i in listEntrevistador:
+	# 	print(type(i))
+
+
+
+
+
+
+
+
+	# pessoa = entrevistador.Entrevistador()
+	# compromissos = compromisso.Compromisso()
+
+	# while True:
+	# 	opt = input("Inserir nova pessoa? (y/n) ")
+	# 	if opt == "y":
+	# 		pessoa.definirNome()
+	# 	else:
+	# 		break
+	
+	#compromissos.agendarCompromisso(pessoa.nome)
+	
+	# print("Segue a lista de entrevistadores...")
+	# if not pessoa.nomeList:
+	# 	print("Ops... Lista de entrevistadores vazia!\n\n")
+	# else:
+	# 	for i in pessoa.nomeList:
+	# 		print(f'> {i}')
+	# 		print("\n\nFIM DO SCRIPT\n\n")
+	
+	
+	
+	#pessoa1.retornaNome()
+
+	#obj_entrevistador = entrevistador.Entrevistador()
+	#obj_compromisso = compromisso.Compromisso()
 
 	# obj_entrevistador.nome = "João Neto"
 	# obj_compromisso.horainicio = "2020/02/20 23:45:00"
 	# tempo_reuniao = 15
 	# hora_fim = obj_compromisso.horainicio + timedelta(minutes=tempo_reuniao)
 	# print(hora_fim)
-
 
 	# print(obj_entrevistador.nome)
 	# print(obj_compromisso.horainicio)
